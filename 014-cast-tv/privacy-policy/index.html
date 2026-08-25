@@ -1,0 +1,790 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Privacy Policy - TV Screen Mirroring</title>
+
+    <meta name="description"
+          content="Privacy Policy for TV Screen Mirroring. Learn how we collect, use, and protect your information.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(99, 102, 241, 0.18), transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(14, 165, 233, 0.15), transparent 30%),
+                #080b14;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: min(1000px, calc(100% - 32px));
+            margin: auto;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 70px 0 50px;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 86px;
+            height: 86px;
+            margin: 0 auto 24px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            background:
+                linear-gradient(135deg, #6366f1, #06b6d4);
+            box-shadow:
+                0 20px 50px rgba(6, 182, 212, 0.25),
+                0 10px 30px rgba(99, 102, 241, 0.25);
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(32px, 6vw, 52px);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 18px auto 0;
+            color: #a5b4fc;
+            font-size: 17px;
+        }
+
+        .updated {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 7px 14px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.04);
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        /* Main card */
+
+        .policy {
+            margin-bottom: 60px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 28px;
+            background: rgba(15, 23, 42, 0.72);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+        }
+
+        section {
+            padding: 10px 0 32px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 18px;
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        .number {
+            width: 34px;
+            height: 34px;
+            flex: 0 0 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        h3 {
+            margin: 22px 0 8px;
+            color: #c4b5fd;
+            font-size: 17px;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #cbd5e1;
+        }
+
+        ul {
+            padding-left: 22px;
+            color: #cbd5e1;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        strong {
+            color: #f8fafc;
+        }
+
+        /* Highlight */
+
+        .highlight {
+            margin: 24px 0;
+            padding: 20px 22px;
+            border-left: 4px solid #06b6d4;
+            border-radius: 14px;
+            background: rgba(6, 182, 212, 0.08);
+        }
+
+        .highlight strong {
+            color: #67e8f9;
+        }
+
+        /* Permission cards */
+
+        .permissions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .permission {
+            padding: 18px;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            background: rgba(255,255,255,0.035);
+        }
+
+        .permission-icon {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .permission strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .permission span {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 20px 0 50px;
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .brand {
+            color: #a5b4fc;
+            font-weight: 600;
+        }
+
+        a {
+            color: #67e8f9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .policy {
+                padding: 25px 20px;
+                border-radius: 22px;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .permissions {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="hero">
+    <div class="container">
+
+        <div class="app-icon">
+            📺
+        </div>
+
+        <h1>Privacy Policy</h1>
+
+        <p>
+            TV Screen Mirroring respects your privacy.
+            This policy explains what information may be collected,
+            how it is used, and how we protect your data.
+        </p>
+
+        <div class="updated">
+            Last updated: August 25, 2026
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="policy">
+
+        <!-- 1 -->
+
+        <section>
+            <h2>
+                <span class="number">1</span>
+                Introduction
+            </h2>
+
+            <p>
+                Welcome to <strong>TV Screen Mirroring</strong>.
+                We provide a simple way to mirror and cast content
+                from your Android device to compatible TVs and
+                streaming devices.
+            </p>
+
+            <p>
+                We are committed to protecting your privacy and
+                keeping the information associated with your use
+                of the application secure.
+            </p>
+
+            <div class="highlight">
+                <strong>Our principle:</strong>
+                TV Screen Mirroring does not require you to create
+                an account or provide personal information such as
+                your name, phone number, or email address to use
+                the core screen mirroring functionality.
+            </div>
+        </section>
+
+
+        <!-- 2 -->
+
+        <section>
+            <h2>
+                <span class="number">2</span>
+                Information We Collect
+            </h2>
+
+            <p>
+                Depending on how you use the application, we may
+                process limited technical and usage information.
+            </p>
+
+            <h3>Device Information</h3>
+
+            <p>
+                We may automatically receive basic technical
+                information such as:
+            </p>
+
+            <ul>
+                <li>Device model and manufacturer</li>
+                <li>Android version</li>
+                <li>Screen resolution</li>
+                <li>Language and region settings</li>
+                <li>Application version</li>
+                <li>Basic technical information required for compatibility</li>
+            </ul>
+
+            <h3>Usage and Diagnostic Information</h3>
+
+            <p>
+                We may collect limited information about application
+                usage, crashes, errors, and performance in order to
+                improve stability and user experience.
+            </p>
+
+            <h3>Network Information</h3>
+
+            <p>
+                Screen mirroring and casting require communication
+                between your Android device and the receiving TV
+                or compatible device.
+            </p>
+
+            <p>
+                The application may process local network information,
+                such as available devices and network addresses,
+                solely to discover and establish a connection with
+                compatible devices.
+            </p>
+
+            <div class="highlight">
+                <strong>Important:</strong>
+                Local network information used for device discovery
+                is not intended to identify you personally.
+            </div>
+        </section>
+
+
+        <!-- 3 -->
+
+        <section>
+            <h2>
+                <span class="number">3</span>
+                App Permissions
+            </h2>
+
+            <p>
+                TV Screen Mirroring may request certain Android
+                permissions when they are required for specific
+                features.
+            </p>
+
+            <div class="permissions">
+
+                <div class="permission">
+                    <div class="permission-icon">📡</div>
+                    <strong>Wi-Fi / Network</strong>
+                    <span>
+                        Used to discover compatible TVs and establish
+                        a connection for casting or mirroring.
+                    </span>
+                </div>
+
+                <div class="permission">
+                    <div class="permission-icon">🖼️</div>
+                    <strong>Photos & Media</strong>
+                    <span>
+                        May be required when you choose to cast
+                        photos or videos stored on your device.
+                    </span>
+                </div>
+
+                <div class="permission">
+                    <div class="permission-icon">📍</div>
+                    <strong>Location</strong>
+                    <span>
+                        Some Android versions may require location
+                        permission for Wi-Fi or nearby-device discovery.
+                    </span>
+                </div>
+
+                <div class="permission">
+                    <div class="permission-icon">📺</div>
+                    <strong>Nearby Devices</strong>
+                    <span>
+                        May be used to discover compatible TVs,
+                        streaming devices, or other nearby receivers.
+                    </span>
+                </div>
+
+            </div>
+
+            <p>
+                Permissions are used only for the functionality
+                described above. You can manage application
+                permissions at any time through your Android
+                device settings.
+            </p>
+        </section>
+
+
+        <!-- 4 -->
+
+        <section>
+            <h2>
+                <span class="number">4</span>
+                Photos, Videos and Media
+            </h2>
+
+            <p>
+                If you choose to cast a photo or video from your
+                device, the application may request access to the
+                relevant media.
+            </p>
+
+            <p>
+                Your photos and videos are used to provide the
+                feature you requested, such as selecting and
+                displaying media on a compatible TV.
+            </p>
+
+            <p>
+                We do not intentionally upload your personal
+                photos or videos to our servers for advertising
+                or unrelated purposes.
+            </p>
+        </section>
+
+
+        <!-- 5 -->
+
+        <section>
+            <h2>
+                <span class="number">5</span>
+                How We Use Information
+            </h2>
+
+            <p>
+                Information that may be collected is used for
+                legitimate purposes such as:
+            </p>
+
+            <ul>
+                <li>Providing and maintaining the application's features</li>
+                <li>Discovering and connecting to compatible devices</li>
+                <li>Improving application performance and reliability</li>
+                <li>Detecting crashes, errors, and technical problems</li>
+                <li>Understanding general application usage</li>
+                <li>Improving the user experience</li>
+                <li>Preventing fraud, abuse, or unauthorized activity</li>
+                <li>Complying with applicable legal requirements</li>
+            </ul>
+
+            <p>
+                We do not use your personal media content for
+                purposes unrelated to the functionality you request.
+            </p>
+        </section>
+
+
+        <!-- 6 -->
+
+        <section>
+            <h2>
+                <span class="number">6</span>
+                Advertising and Analytics
+            </h2>
+
+            <p>
+                TV Screen Mirroring may use third-party services
+                to provide advertisements, analytics, crash
+                reporting, or application performance monitoring.
+            </p>
+
+            <p>
+                These third-party services may automatically collect
+                certain technical information from your device,
+                including device identifiers, advertising identifiers,
+                IP address, application information, and interaction
+                information, subject to their own privacy policies.
+            </p>
+
+            <p>
+                Advertising identifiers may be used to provide
+                relevant advertising and measure advertising
+                performance where permitted by applicable laws
+                and platform policies.
+            </p>
+
+            <p>
+                You can manage advertising and privacy settings
+                through your Android device and Google account
+                settings.
+            </p>
+        </section>
+
+
+        <!-- 7 -->
+
+        <section>
+            <h2>
+                <span class="number">7</span>
+                Information Sharing
+            </h2>
+
+            <p>
+                We do not sell your personal information.
+            </p>
+
+            <p>
+                We may share limited information with service
+                providers when necessary to operate, maintain,
+                analyze, or improve the application.
+            </p>
+
+            <h3>Service Providers</h3>
+
+            <p>
+                Service providers may assist us with services such as:
+            </p>
+
+            <ul>
+                <li>Application analytics</li>
+                <li>Crash reporting</li>
+                <li>Advertising</li>
+                <li>Cloud infrastructure</li>
+                <li>Technical support</li>
+            </ul>
+
+            <h3>Legal Requirements</h3>
+
+            <p>
+                We may disclose information when reasonably necessary
+                to comply with applicable laws, legal processes,
+                governmental requests, or to protect the rights,
+                safety, and security of our users or services.
+            </p>
+        </section>
+
+
+        <!-- 8 -->
+
+        <section>
+            <h2>
+                <span class="number">8</span>
+                Data Security
+            </h2>
+
+            <p>
+                We take reasonable technical and organizational
+                measures to protect information processed through
+                the application against unauthorized access,
+                alteration, disclosure, or destruction.
+            </p>
+
+            <p>
+                However, no method of electronic transmission or
+                storage can be guaranteed to be completely secure.
+                We therefore cannot guarantee absolute security
+                of information.
+            </p>
+        </section>
+
+
+        <!-- 9 -->
+
+        <section>
+            <h2>
+                <span class="number">9</span>
+                Data Retention
+            </h2>
+
+            <p>
+                We retain information only for as long as reasonably
+                necessary to provide our services, maintain security,
+                analyze application performance, comply with legal
+                obligations, or resolve disputes.
+            </p>
+
+            <p>
+                Information that is no longer necessary may be
+                deleted or anonymized where reasonably possible.
+            </p>
+        </section>
+
+
+        <!-- 10 -->
+
+        <section>
+            <h2>
+                <span class="number">10</span>
+                Children's Privacy
+            </h2>
+
+            <p>
+                TV Screen Mirroring is not specifically directed
+                toward children under the age of 13.
+            </p>
+
+            <p>
+                We do not knowingly collect personal information
+                from children under 13. If we become aware that
+                personal information from a child has been collected
+                without appropriate consent, we will take reasonable
+                steps to delete it.
+            </p>
+        </section>
+
+
+        <!-- 11 -->
+
+        <section>
+            <h2>
+                <span class="number">11</span>
+                Third-Party Services and Links
+            </h2>
+
+            <p>
+                The application may use third-party services that
+                operate independently from us. These services may
+                have their own privacy policies and terms.
+            </p>
+
+            <p>
+                We encourage you to review the privacy policies of
+                third-party services that may process information
+                when you use their features.
+            </p>
+        </section>
+
+
+        <!-- 12 -->
+
+        <section>
+            <h2>
+                <span class="number">12</span>
+                Your Privacy Choices
+            </h2>
+
+            <p>
+                Depending on your device, location, and applicable
+                laws, you may have rights regarding your personal
+                information, including:
+            </p>
+
+            <ul>
+                <li>Accessing certain personal information</li>
+                <li>Requesting correction of inaccurate information</li>
+                <li>Requesting deletion where applicable</li>
+                <li>Managing application permissions</li>
+                <li>Managing advertising preferences</li>
+                <li>Restricting certain types of data processing</li>
+            </ul>
+
+            <p>
+                You can manage many permissions directly through
+                Android Settings.
+            </p>
+        </section>
+
+
+        <!-- 13 -->
+
+        <section>
+            <h2>
+                <span class="number">13</span>
+                International Data Transfers
+            </h2>
+
+            <p>
+                Some service providers we use may process information
+                on servers located in countries other than your country
+                of residence.
+            </p>
+
+            <p>
+                Where applicable, we take reasonable measures to
+                ensure that information is handled in accordance
+                with applicable privacy and data protection requirements.
+            </p>
+        </section>
+
+
+        <!-- 14 -->
+
+        <section>
+            <h2>
+                <span class="number">14</span>
+                Changes to This Privacy Policy
+            </h2>
+
+            <p>
+                We may update this Privacy Policy from time to time
+                to reflect changes to the application, our services,
+                or applicable legal requirements.
+            </p>
+
+            <p>
+                When changes are made, we will update the
+                "Last updated" date displayed at the top of this page.
+            </p>
+
+            <p>
+                We encourage you to review this Privacy Policy
+                periodically.
+            </p>
+        </section>
+
+
+        <!-- 15 -->
+
+        <section>
+            <h2>
+                <span class="number">15</span>
+                Contact Us
+            </h2>
+
+            <p>
+                If you have questions, concerns, or requests regarding
+                this Privacy Policy or the handling of your information,
+                you can contact us at:
+            </p>
+
+            <div class="highlight">
+
+                <p>
+                    <strong>TV Screen Mirroring Support</strong>
+                </p>
+
+                <p>
+                    Email:
+                    <a href="mailto:support@yourdomain.com">
+                        support@yourdomain.com
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer>
+    <div class="container">
+        © 2026 <span class="brand">TV Screen Mirroring</span>.
+        All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>
+```
