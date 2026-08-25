@@ -1,1 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>TV Screen Mirroring - About</title>
+
+    <meta name="description"
+          content="TV Screen Mirroring lets you mirror your Android screen, cast supported content, view photos and videos, use a whiteboard, and access available TV controls.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            color: #e5e7eb;
+            line-height: 1.7;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(99, 102, 241, 0.20), transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(6, 182, 212, 0.18), transparent 30%),
+                #080b14;
+        }
+
+        .container {
+            width: min(1000px, calc(100% - 32px));
+            margin: auto;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 70px 0 60px;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 26px;
+            font-size: 46px;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            box-shadow:
+                0 20px 60px rgba(6, 182, 212, 0.25),
+                0 10px 35px rgba(99, 102, 241, 0.25);
+        }
+
+        .hero h1 {
+            margin: 0;
+            color: #fff;
+            font-size: clamp(34px, 7vw, 56px);
+            line-height: 1.1;
+            letter-spacing: -1.8px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #818cf8, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 22px auto 0;
+            color: #94a3b8;
+            font-size: 17px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 25px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.04);
+            color: #c4b5fd;
+            font-size: 13px;
+        }
+
+        /* Main */
+
+        .content {
+            margin-bottom: 60px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 28px;
+            background: rgba(15, 23, 42, 0.72);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+        }
+
+        .intro {
+            padding: 10px 0 35px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            text-align: center;
+        }
+
+        .intro p {
+            max-width: 760px;
+            margin: auto;
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        /* Features */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .feature {
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px;
+            background: rgba(255,255,255,0.035);
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.055);
+            border-color: rgba(129,140,248,0.3);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border-radius: 14px;
+            background: linear-gradient(
+                135deg,
+                rgba(99,102,241,0.22),
+                rgba(6,182,212,0.18)
+            );
+            font-size: 25px;
+        }
+
+        .feature h2 {
+            margin: 0 0 9px;
+            color: #fff;
+            font-size: 19px;
+        }
+
+        .feature p {
+            margin: 0;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Connection */
+
+        .section {
+            margin-top: 45px;
+            padding-top: 35px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .section h2 {
+            margin: 0 0 22px;
+            color: #fff;
+            font-size: 25px;
+        }
+
+        .steps {
+            display: grid;
+            gap: 12px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 16px 18px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.035);
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            flex: 0 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .step p {
+            margin: 3px 0 0;
+            color: #cbd5e1;
+            font-size: 15px;
+        }
+
+        /* Compatibility */
+
+        .notice {
+            margin-top: 25px;
+            padding: 22px;
+            border-left: 4px solid #06b6d4;
+            border-radius: 15px;
+            background: rgba(6,182,212,0.07);
+        }
+
+        .notice strong {
+            color: #67e8f9;
+        }
+
+        .notice p {
+            margin: 7px 0;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 20px 0 50px;
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .brand {
+            color: #a5b4fc;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+            .hero {
+                padding: 45px 0 40px;
+            }
+
+            .content {
+                padding: 25px 20px;
+                border-radius: 22px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .intro p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="hero">
+    <div class="container">
+
+        <div class="app-icon">
+            📺
+        </div>
+
+        <h1>
+            <span>TV Screen Mirroring</span>
+        </h1>
+
+        <p>
+            Bring your phone content to a larger display with
+            screen mirroring, casting, media sharing, and
+            convenient TV controls.
+        </p>
+
+        <div class="badge">
+            📡 Connect • Cast • Mirror
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="content">
+
+        <div class="intro">
+            <p>
+                Connect your Android device to a compatible TV or
+                wireless display over the same Wi-Fi network.
+                Mirror your screen in real time, cast supported
+                content, display your media, or use available
+                remote TV controls.
+            </p>
+        </div>
+
+
+        <!-- Features -->
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">📺</div>
+
+                <h2>Real-Time Screen Mirroring</h2>
+
+                <p>
+                    Mirror your phone screen to a compatible TV or
+                    wireless display in real time. Useful for
+                    presentations, app demonstrations, sharing
+                    information, or viewing your phone interface
+                    on a larger screen.
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <div class="feature-icon">🌐</div>
+
+                <h2>Cast Web Content</h2>
+
+                <p>
+                    Open supported web content within TV Screen
+                    Mirroring and send compatible media to a
+                    connected TV. Availability and playback may
+                    depend on the website, media format, network,
+                    and receiving device.
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <div class="feature-icon">📷</div>
+
+                <h2>Camera Cast</h2>
+
+                <p>
+                    Display a live view from your phone camera on
+                    a compatible screen. Useful for demonstrations,
+                    group viewing, or situations where others need
+                    to follow what your camera is showing.
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <div class="feature-icon">🎞️</div>
+
+                <h2>View Your Gallery on TV</h2>
+
+                <p>
+                    Choose supported photos or videos from your
+                    device gallery and display them on a larger
+                    screen. Media access is requested only when
+                    required for the selected feature.
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <div class="feature-icon">📋</div>
+
+                <h2>Use the Whiteboard</h2>
+
+                <p>
+                    Create notes, sketches, or simple visual
+                    explanations using the built-in whiteboard
+                    and display them on a connected screen.
+                    Great for learning, presentations, discussions,
+                    and explaining ideas.
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <div class="feature-icon">📌</div>
+
+                <h2>Remote TV Controls</h2>
+
+                <p>
+                    Use available remote controls for a compatible
+                    TV after connecting your device. Supported
+                    buttons and functions may vary depending on
+                    the TV model, receiver, and connection method.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Connection -->
+
+        <div class="section">
+
+            <h2>🖥️ Connect to a Compatible Display</h2>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p>
+                        Connect your phone and TV or wireless display
+                        to the same Wi-Fi network.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p>
+                        Enable the required screen mirroring or
+                        casting option on the receiving device.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p>
+                        Open TV Screen Mirroring and search for
+                        available devices.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <p>
+                        Select a compatible TV or wireless display.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <p>
+                        Choose Screen Mirroring, Cast Web,
+                        Camera Cast, Gallery, Whiteboard,
+                        or Remote TV.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <p>
+                        Use the Stop or Disconnect option when
+                        the session is complete.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Compatibility -->
+
+        <div class="section">
+
+            <h2>📡 Compatibility Information</h2>
+
+            <p>
+                Feature availability, connection quality, and
+                response time depend on your Android version,
+                phone model, TV or display capabilities, supported
+                wireless protocols, and Wi-Fi stability.
+            </p>
+
+            <p>
+                Some devices may not support every function.
+                Certain features may work differently depending
+                on the receiving device and its software.
+            </p>
+
+            <div class="notice">
+
+                <p>
+                    <strong>Protected or restricted content</strong>
+                    may not be available for screen mirroring or
+                    casting.
+                </p>
+
+                <p>
+                    TV Screen Mirroring does not remove or bypass
+                    digital rights management, subscription
+                    requirements, copyright protection, or
+                    content-provider restrictions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Disclaimer -->
+
+        <div class="section">
+
+            <h2>ℹ️ Independent Application</h2>
+
+            <p>
+                TV Screen Mirroring is an independently developed
+                application.
+            </p>
+
+            <p>
+                It is not affiliated with, endorsed by, sponsored
+                by, or an official product of any television
+                manufacturer, streaming service, device brand,
+                or platform provider.
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+    <div class="container">
+        © 2026
+        <span class="brand">TV Screen Mirroring</span>.
+        All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>
