@@ -1,432 +1,609 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Learn: English Learning</title>
+```
+<title>AI Learn: English Learning</title>
 
-    <meta name="description"
-          content="AI Learn: English Learning is an AI-powered English learning companion for vocabulary, speaking, reading, lessons, translation, and AI conversation practice.">
+<meta name="description"
+      content="AI Learn: English Learning is an AI-powered English learning companion for vocabulary, speaking, reading, lessons, translation, and AI conversation practice.">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        body {
-            margin: 0;
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                Helvetica,
-                Arial,
-                sans-serif;
-            color: #172033;
-            line-height: 1.7;
-            background:
-                radial-gradient(circle at 10% 0%, rgba(99, 102, 241, .16), transparent 28%),
-                radial-gradient(circle at 90% 8%, rgba(45, 212, 191, .16), transparent 28%),
-                radial-gradient(circle at 50% 100%, rgba(168, 85, 247, .10), transparent 35%),
-                #f8fafc;
-        }
+    body {
+        margin: 0;
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif;
+        color: #172033;
+        line-height: 1.7;
+        background:
+            radial-gradient(circle at 10% 0%, rgba(99, 102, 241, .16), transparent 28%),
+            radial-gradient(circle at 90% 8%, rgba(45, 212, 191, .16), transparent 28%),
+            radial-gradient(circle at 50% 100%, rgba(168, 85, 247, .10), transparent 35%),
+            #f8fafc;
+    }
 
-        .container {
-            width: min(1080px, calc(100% - 32px));
-            margin: auto;
-        }
+    .container {
+        width: min(1080px, calc(100% - 32px));
+        margin: auto;
+    }
 
-        /* HERO */
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 85px 0 75px;
+        text-align: center;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        top: -220px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: linear-gradient(
+            135deg,
+            rgba(99, 102, 241, .22),
+            rgba(45, 212, 191, .15)
+        );
+        filter: blur(10px);
+        pointer-events: none;
+    }
+
+    .ai-badge {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 17px;
+        margin-bottom: 24px;
+        border: 1px solid rgba(99, 102, 241, .16);
+        border-radius: 999px;
+        background: rgba(255,255,255,.75);
+        color: #5b5bd6;
+        font-size: 13px;
+        font-weight: 700;
+        box-shadow: 0 8px 25px rgba(79,70,229,.08);
+    }
+
+    .app-icon {
+        position: relative;
+        width: 94px;
+        height: 94px;
+        margin: 0 auto 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 28px;
+        font-size: 46px;
+        background:
+            linear-gradient(135deg, #6366f1, #8b5cf6 48%, #2dd4bf);
+        box-shadow:
+            0 22px 55px rgba(99,102,241,.28),
+            0 8px 25px rgba(45,212,191,.16);
+    }
+
+    .hero h1 {
+        position: relative;
+        margin: 0;
+        font-size: clamp(36px, 7vw, 62px);
+        line-height: 1.08;
+        letter-spacing: -2.2px;
+        color: #111827;
+    }
+
+    .gradient-text {
+        background:
+            linear-gradient(
+                90deg,
+                #4f46e5,
+                #7c3aed,
+                #0f766e
+            );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+        position: relative;
+        max-width: 760px;
+        margin: 24px auto 0;
+        color: #64748b;
+        font-size: 18px;
+    }
+
+    .hero-pills {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 9px;
+        margin-top: 27px;
+    }
+
+    .pill {
+        padding: 7px 13px;
+        border-radius: 999px;
+        background: rgba(255,255,255,.82);
+        border: 1px solid #e2e8f0;
+        color: #475569;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    /* =========================
+       CONTENT
+    ========================== */
+
+    .content {
+        margin-bottom: 65px;
+        padding: 42px;
+        border: 1px solid rgba(148,163,184,.20);
+        border-radius: 32px;
+        background: rgba(255,255,255,.80);
+        backdrop-filter: blur(18px);
+        box-shadow:
+            0 25px 80px rgba(15,23,42,.08);
+    }
+
+    .intro {
+        text-align: center;
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .intro h2 {
+        margin: 0 0 12px;
+        color: #111827;
+        font-size: 28px;
+    }
+
+    .intro p {
+        max-width: 790px;
+        margin: auto;
+        color: #64748b;
+        font-size: 16px;
+    }
+
+    /* =========================
+       FEATURE GRID
+    ========================== */
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .feature {
+        position: relative;
+        overflow: hidden;
+        padding: 25px;
+        border: 1px solid #e5e7eb;
+        border-radius: 22px;
+        background: #ffffff;
+        transition:
+            transform .2s ease,
+            box-shadow .2s ease,
+            border-color .2s ease;
+    }
+
+    .feature::after {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        right: -55px;
+        top: -55px;
+        border-radius: 50%;
+        background: rgba(99,102,241,.06);
+    }
+
+    .feature:hover {
+        transform: translateY(-4px);
+        border-color: #c7d2fe;
+        box-shadow: 0 15px 35px rgba(79,70,229,.08);
+    }
+
+    .feature-icon {
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 17px;
+        border-radius: 16px;
+        font-size: 26px;
+        background:
+            linear-gradient(
+                135deg,
+                #eef2ff,
+                #f5f3ff
+            );
+    }
+
+    .feature h3 {
+        margin: 0 0 9px;
+        color: #111827;
+        font-size: 19px;
+    }
+
+    .feature p {
+        margin: 0;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+    /* =========================
+       SPECIAL AI CARD
+    ========================== */
+
+    .ai-card {
+        grid-column: 1 / -1;
+        padding: 30px;
+        border: 1px solid #ddd6fe;
+        border-radius: 24px;
+        background:
+            linear-gradient(
+                135deg,
+                rgba(238,242,255,.95),
+                rgba(245,243,255,.95),
+                rgba(240,253,250,.95)
+            );
+    }
+
+    .ai-card .feature-icon {
+        background: #ffffff;
+    }
+
+    .ai-card h3 {
+        font-size: 22px;
+    }
+
+    /* =========================
+       LEARNING PATH
+    ========================== */
+
+    .learning-path {
+        margin-top: 45px;
+        padding-top: 38px;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .section-title {
+        margin: 0 0 25px;
+        text-align: center;
+        color: #111827;
+        font-size: 27px;
+    }
+
+    .path {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .path-item {
+        padding: 12px 17px;
+        border-radius: 14px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        color: #475569;
+        font-size: 14px;
+        font-weight: 650;
+    }
+
+    .arrow {
+        color: #818cf8;
+        font-weight: 800;
+    }
+
+    /* =========================
+       AI NOTICE
+    ========================== */
+
+    .notice {
+        margin-top: 45px;
+        padding: 23px 25px;
+        border-left: 4px solid #8b5cf6;
+        border-radius: 16px;
+        background:
+            linear-gradient(
+                90deg,
+                rgba(139,92,246,.08),
+                rgba(99,102,241,.04)
+            );
+    }
+
+    .notice strong {
+        color: #6d28d9;
+    }
+
+    .notice p {
+        margin: 7px 0 0;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+    /* =========================
+       SUPPORT SECTION
+    ========================== */
+
+    .support-section {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        margin-top: 45px;
+        padding: 32px;
+        overflow: hidden;
+        border: 1px solid #a5b4fc;
+        border-radius: 26px;
+        background:
+            linear-gradient(
+                135deg,
+                rgba(224,231,255,.98),
+                rgba(245,243,255,.98),
+                rgba(204,251,241,.98)
+            );
+        box-shadow:
+            0 18px 50px rgba(79,70,229,.16),
+            0 5px 20px rgba(45,212,191,.08);
+    }
+
+    .support-section::before {
+        content: "";
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        right: -85px;
+        top: -100px;
+        border-radius: 50%;
+        background: rgba(99,102,241,.14);
+        pointer-events: none;
+    }
+
+    .support-section::after {
+        content: "";
+        position: absolute;
+        width: 130px;
+        height: 130px;
+        left: -65px;
+        bottom: -65px;
+        border-radius: 50%;
+        background: rgba(45,212,191,.10);
+        pointer-events: none;
+    }
+
+    .support-icon {
+        position: relative;
+        z-index: 1;
+        flex: 0 0 72px;
+        width: 72px;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 22px;
+        font-size: 35px;
+        background: #ffffff;
+        box-shadow:
+            0 12px 30px rgba(79,70,229,.14);
+    }
+
+    .support-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .support-badge {
+        display: inline-block;
+        margin-bottom: 5px;
+        color: #6d28d9;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .6px;
+    }
+
+    .support-content h2 {
+        margin: 0 0 8px;
+        color: #111827;
+        font-size: 26px;
+        line-height: 1.25;
+    }
+
+    .support-content p {
+        max-width: 720px;
+        margin: 0;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+    .support-email {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 17px;
+        padding: 12px 18px;
+        border: 1px solid rgba(99,102,241,.18);
+        border-radius: 13px;
+        background: #ffffff;
+        color: #4f46e5;
+        font-size: 14px;
+        font-weight: 750;
+        text-decoration: none;
+        box-shadow:
+            0 8px 22px rgba(79,70,229,.10);
+        transition:
+            transform .2s ease,
+            box-shadow .2s ease,
+            background .2s ease;
+    }
+
+    .support-email:hover {
+        transform: translateY(-2px);
+        background: #f8faff;
+        box-shadow:
+            0 12px 30px rgba(79,70,229,.16);
+    }
+
+    .support-note {
+        margin-top: 11px !important;
+        color: #64748b;
+        font-size: 13px !important;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+        margin-top: 45px;
+        padding: 42px 25px;
+        text-align: center;
+        border-radius: 25px;
+        color: #ffffff;
+        background:
+            linear-gradient(
+                135deg,
+                #4f46e5,
+                #7c3aed,
+                #0f766e
+            );
+        box-shadow:
+            0 20px 45px rgba(79,70,229,.20);
+    }
+
+    .cta h2 {
+        margin: 0;
+        font-size: 29px;
+    }
+
+    .cta p {
+        max-width: 650px;
+        margin: 12px auto 0;
+        color: rgba(255,255,255,.82);
+    }
+
+    .cta-button {
+        display: inline-block;
+        margin-top: 22px;
+        padding: 11px 21px;
+        border-radius: 12px;
+        background: #ffffff;
+        color: #4f46e5;
+        font-weight: 750;
+        font-size: 14px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+        padding: 20px 0 55px;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 14px;
+    }
+
+    .brand {
+        color: #6366f1;
+        font-weight: 700;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 720px) {
 
         .hero {
-            position: relative;
-            overflow: hidden;
-            padding: 85px 0 75px;
-            text-align: center;
+            padding: 55px 0 45px;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 420px;
-            height: 420px;
-            top: -220px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50%;
-            background: linear-gradient(
-                135deg,
-                rgba(99, 102, 241, .22),
-                rgba(45, 212, 191, .15)
-            );
-            filter: blur(10px);
-            pointer-events: none;
+        .content {
+            padding: 25px 19px;
+            border-radius: 24px;
         }
 
-        .ai-badge {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 9px 17px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(99, 102, 241, .16);
-            border-radius: 999px;
-            background: rgba(255,255,255,.75);
-            color: #5b5bd6;
-            font-size: 13px;
-            font-weight: 700;
-            box-shadow: 0 8px 25px rgba(79,70,229,.08);
+        .features {
+            grid-template-columns: 1fr;
         }
 
-        .app-icon {
-            position: relative;
-            width: 94px;
-            height: 94px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 28px;
-            font-size: 46px;
-            background:
-                linear-gradient(135deg, #6366f1, #8b5cf6 48%, #2dd4bf);
-            box-shadow:
-                0 22px 55px rgba(99,102,241,.28),
-                0 8px 25px rgba(45,212,191,.16);
-        }
-
-        .hero h1 {
-            position: relative;
-            margin: 0;
-            font-size: clamp(36px, 7vw, 62px);
-            line-height: 1.08;
-            letter-spacing: -2.2px;
-            color: #111827;
-        }
-
-        .gradient-text {
-            background:
-                linear-gradient(
-                    90deg,
-                    #4f46e5,
-                    #7c3aed,
-                    #0f766e
-                );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .ai-card {
+            grid-column: auto;
         }
 
         .hero-description {
-            position: relative;
-            max-width: 760px;
-            margin: 24px auto 0;
-            color: #64748b;
-            font-size: 18px;
-        }
-
-        .hero-pills {
-            position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 9px;
-            margin-top: 27px;
-        }
-
-        .pill {
-            padding: 7px 13px;
-            border-radius: 999px;
-            background: rgba(255,255,255,.82);
-            border: 1px solid #e2e8f0;
-            color: #475569;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        /* CONTENT */
-
-        .content {
-            margin-bottom: 65px;
-            padding: 42px;
-            border: 1px solid rgba(148,163,184,.20);
-            border-radius: 32px;
-            background: rgba(255,255,255,.80);
-            backdrop-filter: blur(18px);
-            box-shadow:
-                0 25px 80px rgba(15,23,42,.08);
-        }
-
-        .intro {
-            text-align: center;
-            padding-bottom: 40px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .intro h2 {
-            margin: 0 0 12px;
-            color: #111827;
-            font-size: 28px;
-        }
-
-        .intro p {
-            max-width: 790px;
-            margin: auto;
-            color: #64748b;
             font-size: 16px;
         }
 
-        /* FEATURE GRID */
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .feature {
-            position: relative;
-            overflow: hidden;
-            padding: 25px;
-            border: 1px solid #e5e7eb;
-            border-radius: 22px;
-            background: #ffffff;
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease,
-                border-color .2s ease;
-        }
-
-        .feature::after {
-            content: "";
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            right: -55px;
-            top: -55px;
-            border-radius: 50%;
-            background: rgba(99,102,241,.06);
-        }
-
-        .feature:hover {
-            transform: translateY(-4px);
-            border-color: #c7d2fe;
-            box-shadow: 0 15px 35px rgba(79,70,229,.08);
-        }
-
-        .feature-icon {
-            width: 52px;
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 17px;
-            border-radius: 16px;
-            font-size: 26px;
-            background:
-                linear-gradient(
-                    135deg,
-                    #eef2ff,
-                    #f5f3ff
-                );
-        }
-
-        .feature h3 {
-            margin: 0 0 9px;
-            color: #111827;
-            font-size: 19px;
-        }
-
-        .feature p {
-            margin: 0;
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        /* SPECIAL AI CARD */
-
-        .ai-card {
-            grid-column: 1 / -1;
-            padding: 30px;
-            border: 1px solid #ddd6fe;
-            border-radius: 24px;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(238,242,255,.95),
-                    rgba(245,243,255,.95),
-                    rgba(240,253,250,.95)
-                );
-        }
-
-        .ai-card .feature-icon {
-            background: #ffffff;
-        }
-
-        .ai-card h3 {
-            font-size: 22px;
-        }
-
-        /* LEARNING PATH */
-
-        .learning-path {
-            margin-top: 45px;
-            padding-top: 38px;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .section-title {
-            margin: 0 0 25px;
-            text-align: center;
-            color: #111827;
-            font-size: 27px;
+        .intro h2 {
+            font-size: 24px;
         }
 
         .path {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .path-item {
-            padding: 12px 17px;
-            border-radius: 14px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            color: #475569;
-            font-size: 14px;
-            font-weight: 650;
+            flex-direction: column;
         }
 
         .arrow {
-            color: #818cf8;
-            font-weight: 800;
+            transform: rotate(90deg);
         }
 
-        /* AI NOTICE */
-
-        .notice {
-            margin-top: 45px;
-            padding: 23px 25px;
-            border-left: 4px solid #8b5cf6;
-            border-radius: 16px;
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(139,92,246,.08),
-                    rgba(99,102,241,.04)
-                );
+        .support-section {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 25px 20px;
         }
 
-        .notice strong {
-            color: #6d28d9;
-        }
-
-        .notice p {
-            margin: 7px 0 0;
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        /* CTA */
-
-        .cta {
-            margin-top: 45px;
-            padding: 42px 25px;
-            text-align: center;
-            border-radius: 25px;
-            color: #ffffff;
-            background:
-                linear-gradient(
-                    135deg,
-                    #4f46e5,
-                    #7c3aed,
-                    #0f766e
-                );
-            box-shadow:
-                0 20px 45px rgba(79,70,229,.20);
-        }
-
-        .cta h2 {
-            margin: 0;
+        .support-icon {
+            width: 60px;
+            height: 60px;
+            flex-basis: 60px;
+            border-radius: 18px;
             font-size: 29px;
         }
 
-        .cta p {
-            max-width: 650px;
-            margin: 12px auto 0;
-            color: rgba(255,255,255,.82);
+        .support-content h2 {
+            font-size: 23px;
         }
 
-        .cta-button {
-            display: inline-block;
-            margin-top: 22px;
-            padding: 11px 21px;
-            border-radius: 12px;
-            background: #ffffff;
-            color: #4f46e5;
-            font-weight: 750;
-            font-size: 14px;
+        .support-email {
+            max-width: 100%;
+            font-size: 13px;
+            word-break: break-word;
         }
+    }
+</style>
+```
 
-        /* FOOTER */
-
-        footer {
-            padding: 20px 0 55px;
-            text-align: center;
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-        .brand {
-            color: #6366f1;
-            font-weight: 700;
-        }
-
-        @media (max-width: 720px) {
-            .hero {
-                padding: 55px 0 45px;
-            }
-
-            .content {
-                padding: 25px 19px;
-                border-radius: 24px;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .ai-card {
-                grid-column: auto;
-            }
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-            .intro h2 {
-                font-size: 24px;
-            }
-
-            .path {
-                flex-direction: column;
-            }
-
-            .arrow {
-                transform: rotate(90deg);
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -434,292 +611,335 @@
 <header class="hero">
     <div class="container">
 
-        <div class="ai-badge">
-            ✨ AI-POWERED ENGLISH LEARNING
-        </div>
-
-        <div class="app-icon">
-            🧠
-        </div>
-
-        <h1>
-            AI Learn:
-            <span class="gradient-text">English Learning</span>
-        </h1>
-
-        <p class="hero-description">
-            Your AI-powered learning companion for building practical
-            English skills through vocabulary, speaking, reading,
-            lessons, translation, and interactive AI practice.
-        </p>
-
-        <div class="hero-pills">
-            <span class="pill">📚 Lessons</span>
-            <span class="pill">🧠 Vocabulary</span>
-            <span class="pill">🎙 Speaking</span>
-            <span class="pill">📖 Reading</span>
-            <span class="pill">🌐 Translation</span>
-            <span class="pill">✨ AI Chat</span>
-        </div>
-
+```
+    <div class="ai-badge">
+        ✨ AI-POWERED ENGLISH LEARNING
     </div>
-</header>
 
+    <div class="app-icon">
+        🧠
+    </div>
+
+    <h1>
+        AI Learn:
+        <span class="gradient-text">English Learning</span>
+    </h1>
+
+    <p class="hero-description">
+        Your AI-powered learning companion for building practical
+        English skills through vocabulary, speaking, reading,
+        lessons, translation, and interactive AI practice.
+    </p>
+
+    <div class="hero-pills">
+        <span class="pill">📚 Lessons</span>
+        <span class="pill">🧠 Vocabulary</span>
+        <span class="pill">🎙 Speaking</span>
+        <span class="pill">📖 Reading</span>
+        <span class="pill">🌐 Translation</span>
+        <span class="pill">✨ AI Chat</span>
+    </div>
+
+</div>
+```
+
+</header>
 
 <main class="container">
 
-    <div class="content">
+```
+<div class="content">
 
-        <div class="intro">
-            <h2>Learn English Your Way</h2>
+    <div class="intro">
+        <h2>Learn English Your Way</h2>
 
-            <p>
-                AI Learn: English Learning brings different parts of
-                English practice into one connected learning experience.
-                Follow a learning path, build vocabulary, practice speaking,
-                read passages, complete lessons, translate text, and chat
-                with AI whenever you want more practice.
-            </p>
-        </div>
-
-
-        <div class="features">
-
-            <!-- Learning Path -->
-
-            <div class="feature">
-                <div class="feature-icon">🛤️</div>
-
-                <h3>Follow Your Learning Path</h3>
-
-                <p>
-                    Move through English learning content with a clear
-                    path that helps you continue from one activity to
-                    the next. Build a regular study routine and keep
-                    your learning focused.
-                </p>
-            </div>
+        <p>
+            AI Learn: English Learning brings different parts of
+            English practice into one connected learning experience.
+            Follow a learning path, build vocabulary, practice speaking,
+            read passages, complete lessons, translate text, and chat
+            with AI whenever you want more practice.
+        </p>
+    </div>
 
 
-            <!-- Vocabulary -->
-
-            <div class="feature">
-                <div class="feature-icon">🧠</div>
-
-                <h3>Build English Vocabulary</h3>
-
-                <p>
-                    Learn and review useful English vocabulary for
-                    lessons, reading, speaking, and everyday communication.
-                    Strengthen the words you need as you continue
-                    through your learning activities.
-                </p>
-            </div>
-
-
-            <!-- Speaking -->
-
-            <div class="feature">
-                <div class="feature-icon">🎙️</div>
-
-                <h3>Practice English Speaking</h3>
-
-                <p>
-                    Spend more time speaking English through practical
-                    speaking activities. Practice expressing ideas and
-                    responding in English to become more comfortable
-                    communicating.
-                </p>
-            </div>
-
-
-            <!-- Job Interview -->
-
-            <div class="feature">
-                <div class="feature-icon">💼</div>
-
-                <h3>Job Interview Practice</h3>
-
-                <p>
-                    Prepare for English job interview situations by
-                    practicing how you speak and respond. Rehearse
-                    common interview-style conversations before using
-                    English in a real interview.
-                </p>
-            </div>
-
-
-            <!-- IELTS -->
-
-            <div class="feature">
-                <div class="feature-icon">🎯</div>
-
-                <h3>IELTS Speaking Practice</h3>
-
-                <p>
-                    Practice English speaking for IELTS-related
-                    situations and topics supported by the app.
-                    Use the exercises to increase your speaking
-                    practice time and become more familiar with
-                    expressing answers in English.
-                </p>
-            </div>
-
-
-            <!-- Reading -->
-
-            <div class="feature">
-                <div class="feature-icon">📖</div>
-
-                <h3>Read English Passages</h3>
-
-                <p>
-                    Practice reading with English passages available
-                    in the app. Combine reading with vocabulary,
-                    lessons, and other learning tools to build
-                    a broader English study routine.
-                </p>
-            </div>
-
-
-            <!-- Translation -->
-
-            <div class="feature">
-                <div class="feature-icon">🌐</div>
-
-                <h3>Translation</h3>
-
-                <p>
-                    Translate supported text when you need help
-                    understanding English content. Use translation
-                    as a learning aid while reading, studying
-                    vocabulary, or working through lessons.
-                </p>
-            </div>
-
-
-            <!-- Lessons -->
-
-            <div class="feature">
-                <div class="feature-icon">📝</div>
-
-                <h3>English Lessons</h3>
-
-                <p>
-                    Learn through structured lessons that bring
-                    different English skills together. Continue
-                    learning at your own pace and return to activities
-                    that match your current study needs.
-                </p>
-            </div>
-
-
-            <!-- AI -->
-
-            <div class="ai-card">
-
-                <div class="feature-icon">✨</div>
-
-                <h3>Chat With AI</h3>
-
-                <p>
-                    Practice English through an interactive AI chat
-                    experience. Ask questions, explore conversations,
-                    and use AI as a learning companion whenever you
-                    want additional English practice.
-                </p>
-
-            </div>
-
-        </div>
-
+    <div class="features">
 
         <!-- Learning Path -->
 
-        <div class="learning-path">
+        <div class="feature">
+            <div class="feature-icon">🛤️</div>
 
-            <h2 class="section-title">
-                🚀 One Connected Learning Experience
-            </h2>
+            <h3>Follow Your Learning Path</h3>
 
-            <div class="path">
-
-                <div class="path-item">📚 Learn</div>
-
-                <div class="arrow">→</div>
-
-                <div class="path-item">🧠 Vocabulary</div>
-
-                <div class="arrow">→</div>
-
-                <div class="path-item">📖 Reading</div>
-
-                <div class="arrow">→</div>
-
-                <div class="path-item">🎙 Speaking</div>
-
-                <div class="arrow">→</div>
-
-                <div class="path-item">✨ AI Practice</div>
-
-            </div>
-
+            <p>
+                Move through English learning content with a clear
+                path that helps you continue from one activity to
+                the next. Build a regular study routine and keep
+                your learning focused.
+            </p>
         </div>
 
 
-        <!-- AI Notice -->
+        <!-- Vocabulary -->
 
-        <div class="notice">
+        <div class="feature">
+            <div class="feature-icon">🧠</div>
 
-            <strong>✨ About AI-generated content</strong>
+            <h3>Build English Vocabulary</h3>
 
             <p>
-                AI-generated responses may contain mistakes.
-                Review important information independently and use
-                the app as a learning aid rather than a substitute
-                for qualified professional instruction.
+                Learn and review useful English vocabulary for
+                lessons, reading, speaking, and everyday communication.
+                Strengthen the words you need as you continue
+                through your learning activities.
             </p>
-
         </div>
 
 
-        <!-- IELTS Disclaimer -->
+        <!-- Speaking -->
 
-        <div class="notice">
+        <div class="feature">
+            <div class="feature-icon">🎙️</div>
 
-            <strong>🎯 IELTS Notice</strong>
+            <h3>Practice English Speaking</h3>
 
             <p>
-                IELTS is a registered trademark of IELTS partners.
-                AI Learn: English Learning is not affiliated with,
-                endorsed by, or sponsored by IELTS or its partners.
+                Spend more time speaking English through practical
+                speaking activities. Practice expressing ideas and
+                responding in English to become more comfortable
+                communicating.
             </p>
-
         </div>
 
 
-        <!-- CTA -->
+        <!-- Job Interview -->
 
-        <div class="cta">
+        <div class="feature">
+            <div class="feature-icon">💼</div>
 
-            <h2>Ready to Learn Smarter?</h2>
+            <h3>Job Interview Practice</h3>
 
             <p>
-                Bring lessons, vocabulary, speaking, reading,
-                translation, and AI practice into one English
-                learning experience.
+                Prepare for English job interview situations by
+                practicing how you speak and respond. Rehearse
+                common interview-style conversations before using
+                English in a real interview.
             </p>
+        </div>
 
-            <div class="cta-button">
-                ✨ Start Learning
-            </div>
+
+        <!-- IELTS -->
+
+        <div class="feature">
+            <div class="feature-icon">🎯</div>
+
+            <h3>IELTS Speaking Practice</h3>
+
+            <p>
+                Practice English speaking for IELTS-related
+                situations and topics supported by the app.
+                Use the exercises to increase your speaking
+                practice time and become more familiar with
+                expressing answers in English.
+            </p>
+        </div>
+
+
+        <!-- Reading -->
+
+        <div class="feature">
+            <div class="feature-icon">📖</div>
+
+            <h3>Read English Passages</h3>
+
+            <p>
+                Practice reading with English passages available
+                in the app. Combine reading with vocabulary,
+                lessons, and other learning tools to build
+                a broader English study routine.
+            </p>
+        </div>
+
+
+        <!-- Translation -->
+
+        <div class="feature">
+            <div class="feature-icon">🌐</div>
+
+            <h3>Translation</h3>
+
+            <p>
+                Translate supported text when you need help
+                understanding English content. Use translation
+                as a learning aid while reading, studying
+                vocabulary, or working through lessons.
+            </p>
+        </div>
+
+
+        <!-- Lessons -->
+
+        <div class="feature">
+            <div class="feature-icon">📝</div>
+
+            <h3>English Lessons</h3>
+
+            <p>
+                Learn through structured lessons that bring
+                different English skills together. Continue
+                learning at your own pace and return to activities
+                that match your current study needs.
+            </p>
+        </div>
+
+
+        <!-- AI -->
+
+        <div class="ai-card">
+
+            <div class="feature-icon">✨</div>
+
+            <h3>Chat With AI</h3>
+
+            <p>
+                Practice English through an interactive AI chat
+                experience. Ask questions, explore conversations,
+                and use AI as a learning companion whenever you
+                want additional English practice.
+            </p>
 
         </div>
 
     </div>
 
-</main>
 
+    <!-- Learning Path -->
+
+    <div class="learning-path">
+
+        <h2 class="section-title">
+            🚀 One Connected Learning Experience
+        </h2>
+
+        <div class="path">
+
+            <div class="path-item">📚 Learn</div>
+
+            <div class="arrow">→</div>
+
+            <div class="path-item">🧠 Vocabulary</div>
+
+            <div class="arrow">→</div>
+
+            <div class="path-item">📖 Reading</div>
+
+            <div class="arrow">→</div>
+
+            <div class="path-item">🎙 Speaking</div>
+
+            <div class="arrow">→</div>
+
+            <div class="path-item">✨ AI Practice</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI Notice -->
+
+    <div class="notice">
+
+        <strong>✨ About AI-generated content</strong>
+
+        <p>
+            AI-generated responses may contain mistakes.
+            Review important information independently and use
+            the app as a learning aid rather than a substitute
+            for qualified professional instruction.
+        </p>
+
+    </div>
+
+
+    <!-- IELTS Disclaimer -->
+
+    <div class="notice">
+
+        <strong>🎯 IELTS Notice</strong>
+
+        <p>
+            IELTS is a registered trademark of IELTS partners.
+            AI Learn: English Learning is not affiliated with,
+            endorsed by, or sponsored by IELTS or its partners.
+        </p>
+
+    </div>
+
+
+    <!-- SUPPORT -->
+
+    <div class="support-section">
+
+        <div class="support-icon">
+            💬
+        </div>
+
+        <div class="support-content">
+
+            <span class="support-badge">
+                🛟 NEED HELP?
+            </span>
+
+            <h2>We're Here to Help</h2>
+
+            <p>
+                If you experience any problems, have questions,
+                or need assistance while using AI Learn:
+                English Learning, please don't hesitate to
+                contact us.
+            </p>
+
+            <a
+                class="support-email"
+                href="mailto:huandaica19122003@gmail.com"
+            >
+                ✉️ huandaica19122003@gmail.com
+            </a>
+
+            <p class="support-note">
+                Our support team will be happy to help you with
+                your questions and app-related issues.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CTA -->
+
+    <div class="cta">
+
+        <h2>Ready to Learn Smarter?</h2>
+
+        <p>
+            Bring lessons, vocabulary, speaking, reading,
+            translation, and AI practice into one English
+            learning experience.
+        </p>
+
+        <div class="cta-button">
+            ✨ Start Learning
+        </div>
+
+    </div>
+
+</div>
+```
+
+</main>
 
 <footer>
     © 2026
